@@ -118,10 +118,10 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#posts_dropdown"><i class="fa fa-fw fa-arrows-v"></i> Posts <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="posts_dropdown" class="collapse">
                             <li>
-                                <a href="#">View All Post</a>
+                                <a href="post.php">View All Post</a>
                             </li>
                             <li>
-                                <a href="#">Add New Post</a>
+                                <a href="post.php?source=add_post">Add New Post</a>
                             </li>
                         </ul>
                     </li>
