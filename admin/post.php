@@ -44,11 +44,11 @@
                     }
                     switch($source){
                         case 'add_post';
-                        include "includes/add_post.php";
+                            include "includes/add_post.php";
                         break;
 
-                        case '200';
-                        echo 'bad';
+                        case 'edit_post';
+                            include "includes/edit_post.php";
                         break;
 
                         case '100';

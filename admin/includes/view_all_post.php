@@ -11,6 +11,7 @@
                 <td>Tags</td>
                 <td>Comments</td>
                 <td>Date</td>
+                <td>Edit</td>
                 <td>Delete</td>
             </tr>
         </thead>
@@ -42,6 +43,7 @@
                         <td><?php echo $post_tags; ?></td>
                         <td><?php echo $post_comments; ?></td>
                         <td><?php echo $post_date; ?></td>
+                        <td><?php echo "<a href='post.php?source=edit_post&p_id={$post_id}'>Edit</a>";?></td>
                         <td><?php echo "<a href='post.php?delete={$post_id}'>Delete</a>";?></td>
 
                     </tr>
