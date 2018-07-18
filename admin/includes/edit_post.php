@@ -21,6 +21,36 @@
                     $post_comments = $row['post_comment_count'];
                     $post_date = $row['post_date'];
                 }
+
+                if (isset($_POST['update_post'])){
+
+                    $post_title = $_POST['title'];
+                    $post_author = $_POST['post_author'];
+                    $post_catagory_id = $_POST['post_catagory_id'];
+                    $post_status = $_POST['Post_status'];
+
+                    $post_image = $_FILES["image"]["name"];
+                    $post_images_tmp = $_FILES["image"]["tmp_name"];
+
+                    $post_tags = $_POST['Post_tags'];
+                    $post_content = $_POST['post_content'];
+                    $post_date = date('d-m-y');
+                    $post_comments_countt = 4;
+
+                    move_uploaded_file($post_images_tmp, "../images/$post_image");
+
+                    $query = "UPDATE posts SET ";
+                    $query.= " post_title = '{$post_title}', ";
+                    $query.= " post_date = now(), ";
+                    $query.= " post_author = '{$post_author}', ";
+                    $query.= " Post_status = '{$post_status}', ";
+                    $query.= " Post_tags = '{$post_tags}', ";
+                    $query.= " post_content = '{$post_content}', ";
+                    $query.= " post_image = '{$post_image}' ";
+                    $query.= " WHERE post_id = {$P_id} ";
+                    $create_post_query = mysqli_query($connection,$query);
+
+                }
             ?>
 
 
@@ -34,7 +64,7 @@
         <div class="form-group">
             <label for="title">Post Catagory </label>
                 
-            <select class="form-control" name="post_catagory" id="post-catagory">
+            <select class="form-control" name="post_catagory_id" id="post-catagory">
                 <option value="">Select Catagory</option>
                 <?php
                     $query = "SELECT * FROM catagories";
@@ -79,7 +109,7 @@
         </div>
 
         <div class="form-group">
-            <input type="submit" class="btn btn-primary" name="create_post" value="publishpost">
+            <input type="submit" class="btn btn-primary" name="update_post" value="publishpost">
         </div>
 
         
